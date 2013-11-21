@@ -1,0 +1,26 @@
+#!/bin/bash
+if [ "$#" = 0 ]; then
+    content=""
+    while read line ; do
+        content="$content%20$line"
+    done <"/dev/stdin"
+    content=${content// /%20}
+    lang="en"
+else
+    args="$@"
+    index=1
+    content=""
+    for arg in "$@"; do
+        if [ $index = 1 ]; then
+            if [[ $arg == '-h' || $arg == '--help' ]]; then
+                echo 'Usage: speak [LANG] [WORDS]'
+                exit 0
+            fi
+            lang=$arg
+        else
+            content="$content%20$arg"
+        fi
+        index=$((index+1))
+    done
+fi
+xdg-open "http://translate.google.com/translate_tts?tl=$lang&q=$content" > /dev/null 2>&1

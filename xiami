@@ -1,0 +1,2 @@
+#!/bin/bash
+env LANG=zh_CN.UTF-8 wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Xiami/XMusic/XMusic.exe

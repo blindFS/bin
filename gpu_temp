@@ -1,0 +1,8 @@
+#!/bin/bash
+bumble_status=$(optirun --status|awk -F " " '{print $NF}')
+if [ "$bumble_status" = "off."  ]; then
+    echo "Gpu :           off"
+    exit 0
+fi
+bumble_temp=$( optirun --no-xorg nvidia-smi -q -d TEMPERATURE | grep Gpu)
+echo "$(echo $bumble_temp | sed 's/\(\S\+\) C/          +\1.0°C/g')"
