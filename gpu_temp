@@ -1,6 +1,6 @@
 #!/bin/bash
-bumble_status=$(optirun --status|awk -F " " '{print $NF}')
-if [ "$bumble_status" = "off."  ]; then
+bumble_status=$(cat /proc/acpi/bbswitch | awk -F " " '{print $NF}')
+if [ "$bumble_status" = "OFF"  ]; then
     echo "Gpu :           off"
     exit 0
 fi
