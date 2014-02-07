@@ -7,7 +7,6 @@ if [ "$#" = 0 ]; then
     content=${content// /%20}
     lang="en"
 else
-    args="$@"
     index=1
     content=""
     for arg in "$@"; do

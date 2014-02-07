@@ -1,0 +1,6 @@
+#!/bin/bash
+#xdotool key "t"
+gdialog --inputbox 'Please input your message:' 2>&1 | xclip -i -selection clipboard
+sleep 0.2
+xdotool key "ctrl+v"
+xdotool key Return
