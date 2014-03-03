@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -f /usr/bin/python
+ln -s /usr/bin/python$1 /usr/bin/python
