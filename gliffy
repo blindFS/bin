@@ -1,0 +1,2 @@
+#!/bin/bash
+/opt/google/chrome/google-chrome --app-id=bhmicilclplefnflapjmnngmkkkkpfad --profile-directory=Default
