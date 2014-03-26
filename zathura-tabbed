@@ -5,4 +5,9 @@ until wmctrl -lx | grep "tabbed.tabbed"; do
     sleep 0.5
 done
 wmctrl -r :ACTIVE:
-zathura -e `wmctrl -lx | grep "tabbed.tabbed" | cut -d' ' -f1` "$1"
+
+if [ "$#" = 0 ]; then
+    zathura -e `wmctrl -lx | grep "tabbed.tabbed" | cut -d' ' -f1`
+else
+    zathura -e `wmctrl -lx | grep "tabbed.tabbed" | cut -d' ' -f1` "$1"
+fi
