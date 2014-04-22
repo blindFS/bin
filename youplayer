@@ -1,3 +1,2 @@
 #!/bin/bash
-
 you-get -p smplayer $1

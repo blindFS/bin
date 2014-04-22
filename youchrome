@@ -1,0 +1,6 @@
+#!/bin/bash
+
+read line
+url=`echo $line| sed 's/.*text":"//'`
+url=`echo $url| sed 's/"}$//'`
+you-get -p smplayer $url
