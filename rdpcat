@@ -1,0 +1,3 @@
+#!/bin/bash
+sleep 3
+xdotool type "$(cat $1)"
