@@ -4,5 +4,5 @@ if [ "$bumble_status" = "OFF"  ]; then
     echo "Gpu :           off"
     exit 0
 fi
-bumble_temp=$( optirun --no-xorg nvidia-smi -q -d TEMPERATURE | grep Gpu)
-echo "$(echo $bumble_temp | sed 's/\(\S\+\) C/          +\1.0°C/g')"
+# bumble_temp=$( optirun --no-xorg nvidia-smi -q -d TEMPERATURE | grep Gpu)
+# echo "$(echo $bumble_temp | sed 's/\(\S\+\) C/          +\1.0°C/g')"
