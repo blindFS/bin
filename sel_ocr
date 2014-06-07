@@ -1,0 +1,7 @@
+#!/bin/bash
+Date=$(date +%F-%T)
+Pic=~/Pictures/ocr/$Date.png
+Txt=~/Pictures/ocr/$Date.txt
+scrot -s $Pic
+gocr -i $Pic -o $Txt
+zenity --info --text="$(cat $Txt)"
