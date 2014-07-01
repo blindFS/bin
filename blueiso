@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ $# != 1 ]; then
+    echo "Usage: blueiso xxx.iso"
+    exit 0
+fi
+
+sudo mount -o loop $1 /media/cdrom
+vlc bluray:///media/cdrom
