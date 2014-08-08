@@ -1,5 +1,8 @@
-#!/bin/bash
+#!/bin/zsh
 
-lyrics_files=~/tmp/.lyrics/*
+lyrics_dir=~/tmp/.lyrics
 
-grep -l 'xml version=' $lyrics_files | xargs rm
+cd $lyrics_dir
+files=$(grep -l 'xml version=' *)
+notify-send "$(echo $files | cut -d . -f 1)"
+echo $files | xargs rm
