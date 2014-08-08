@@ -1,0 +1,5 @@
+#!/bin/bash
+
+lyrics_files=~/tmp/.lyrics/*
+
+grep -l 'xml version=' $lyrics_files | xargs rm
