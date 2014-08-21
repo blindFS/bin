@@ -22,4 +22,4 @@ else
         index=$((index+1))
     done
 fi
-xdg-open "http://translate.google.com/translate_tts?tl=$lang&q=$content" > /dev/null 2>&1
+mplayer "http://translate.google.com/translate_tts?ie=UTF-8&tl=$lang&q=$content" > /dev/null 2>&1

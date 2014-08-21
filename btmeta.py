@@ -36,10 +36,10 @@ def meta_random(torrentfile, setting=None):
         filename, suffix = os.path.splitext(f['path'][-1].decode(code))
         change_name = None
 
-        if setting == 'random' or suffix not in filter_list:
+        if setting == 'r' or suffix not in filter_list:
             change_name = ''.join(
                 map(lambda xx: (hex(ord(xx))[2:]), os.urandom(16))) + suffix
-        elif setting == 'invert':
+        elif setting == 'i':
             change_name = filename[::-1] + suffix
             # change_name = '_'.join(filename) + suffix
         if change_name is not None:
@@ -49,11 +49,11 @@ def meta_random(torrentfile, setting=None):
 
     random_name = ''.join(map(lambda xx: (hex(ord(xx))[2:]), os.urandom(16)))
     metainfo['info']['name'] = random_name.encode(code)
-    if setting == 'invert' and 'name.utf-8' in metainfo['info']:
+    if setting == 'i' and 'name.utf-8' in metainfo['info']:
         t_name = metainfo['info']['name.utf-8']
         metainfo['info'][
             'name.utf-8'] = t_name.decode('utf-8')[::-1].encode('utf-8')
-    elif setting == 'random':
+    elif setting == 'r':
         metainfo['info']['name.utf-8'] = random_name.encode('utf-8')
     meta_file.write(bencode(metainfo))
     meta_file.close()
@@ -63,7 +63,7 @@ if __name__ == '__main__':
         sys.argv.append('--help')
     parser = argparse.ArgumentParser()
     parser.add_argument('-l', '--level', metavar=('LEVEL'),
-                        help=('Random level random/invert'))
+                        help=('Random level r/i'))
     parser.add_argument('directory', metavar=('DIR'),
                         help=('Directory'))
     args = parser.parse_args()
