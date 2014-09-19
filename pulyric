@@ -1,8 +1,11 @@
-#!/bin/zsh
+#!/bin/bash
 
 lyrics_dir=~/tmp/.lyrics
 
 cd $lyrics_dir
+IFS=$'\n'
 files=$(grep -l 'xml version=' *)
-notify-send "$(echo $files | cut -d . -f 1)"
-echo $files | xargs rm
+notify-send $(printf "%s\n" "${files[@]}" | cut -d . -f 1)
+for file in $files; do
+    rm -f $file
+done
