@@ -1,2 +1,2 @@
 #!/bin/bash
-you-get -p smplayer $1
+you-get -p mpv $1
