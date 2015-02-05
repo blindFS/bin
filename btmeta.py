@@ -21,7 +21,9 @@ def meta_random(torrentfile, setting=None):
     meta_file = open(torrentfile, 'rb')
     metainfo = bdecode(meta_file.read())
     meta_file = open(torrentfile, 'wb')
-    files = metainfo['info']['files']
+    files = metainfo['info'].get('files', [])
+    if files == []:
+        return
     try:
         iter(files)
     except TypeError:
