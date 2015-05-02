@@ -7,8 +7,8 @@ import glob
 
 
 def tag_fix(file):
-    tag = EasyID3(file)
     try:
+        tag = EasyID3(file)
         tag['artist'] = tag.get('artist', tag.get('performer', 'Unknown'))
         tag.save()
         print('Added artist tag of %s to %s' % (tag['artist'], file))
