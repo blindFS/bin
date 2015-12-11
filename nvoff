@@ -1,4 +1,4 @@
 #!/bin/bash
-rmmod nvidia-uvm
+rmmod nvidia_modeset
 rmmod nvidia
 tee /proc/acpi/bbswitch <<< OFF
